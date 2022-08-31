@@ -1,0 +1,18 @@
+{
+    "require": {
+        "squizlabs/php_codesniffer": "*",
+        "phpoffice/phpspreadsheet": "^1.23",
+        "ext-gd": "*"
+    },
+    "config": {
+        "platform-check": false,
+        "platform": {
+            "php": "7.3"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    }
+}
