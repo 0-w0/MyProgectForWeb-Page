@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
-class Country {
-    public function where_am_i(): void {
-        echo 'Welcome to the country page!';
+class Country implements ControllersInterface
+{
+    public function getWelcome(): string
+    {
+        return 'Welcome to the country page!';
     }
 }

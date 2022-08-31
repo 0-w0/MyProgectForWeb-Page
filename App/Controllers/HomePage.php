@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
-class HomePage
+class HomePage implements ControllersInterface
 {
-    public function where_am_i(): void {
-        echo 'Welcome to the home page!';
+    public function getWelcome(): string
+    {
+        return 'Welcome to the home page!';
     }
 }

@@ -15,37 +15,31 @@ class Router
     public function switchControllers(string $path)
     {
         switch ($path) {
-            case '/':
-            {
+            case '/': {
                 return new HomePage();
             }
 
-            case '/championship':
-            {
+            case '/championship': {
                 return new Championship();
             }
 
-            case '/club':
-            {
+            case '/club': {
                 return new Club();
             }
 
-            case '/player':
-            {
+            case '/player': {
                 return new Player();
             }
 
-            case '/manager':
-            {
+            case '/manager': {
                 return new Manager();
             }
 
-            case '/country':
-            {
+            case '/country': {
                 return new Country();
             }
-            default:
-            {
+
+            default: {
                 return new ErrorPage();
             }
         }

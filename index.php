@@ -9,5 +9,5 @@ $router = new Router();
 $controller = $router->switchControllers($requestPath);
 
 if ($controller) {
-    $controller->where_am_i();
+    echo $controller->getWelcome();
 }

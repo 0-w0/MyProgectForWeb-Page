@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
-class Championship {
-    public function where_am_i(): void {
-        echo 'Welcome to the championship page!';
+class Championship implements ControllersInterface
+{
+    public function getWelcome(): string
+    {
+        return 'Welcome to the championship page!';
     }
 }

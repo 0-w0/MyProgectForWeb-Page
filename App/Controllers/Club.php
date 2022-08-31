@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
-class Club {
-    public function where_am_i(): void {
-        echo 'Welcome to the club page!';
+class Club implements ControllersInterface
+{
+    public function getWelcome(): string
+    {
+        return 'Welcome to the club page!';
     }
 }

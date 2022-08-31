@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
-class Player {
-    public function where_am_i(): void {
-        echo 'Welcome to the player page!';
+class Player implements ControllersInterface
+{
+    public function getWelcome(): string
+    {
+        return 'Welcome to the player page!';
     }
 }

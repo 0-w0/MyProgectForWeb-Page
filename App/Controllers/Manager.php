@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
-class Manager {
-    public function where_am_i(): void {
-        echo 'Welcome to the manager page!';
+class Manager implements ControllersInterface
+{
+    public function getWelcome(): string
+    {
+        return 'Welcome to the manager page!';
     }
 }

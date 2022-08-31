@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
-class ErrorPage
+class ErrorPage implements ControllersInterface
 {
-    public function where_am_i(): void {
-        echo 'No such page here!';
+    public function getWelcome(): string
+    {
+        return 'No such page here!';
     }
 }
