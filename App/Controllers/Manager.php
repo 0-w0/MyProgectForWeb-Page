@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Blocks\ManagerBlock;
+
 class Manager implements ControllersInterface
 {
-    public function getWelcome(): string
+    public function execute()
     {
-        return 'Welcome to the manager page!';
+        $managerBlock = new ManagerBlock();
+        $managerBlock->render();
     }
 }

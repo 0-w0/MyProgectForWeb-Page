@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var $this - one of the created Block file
+ */
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MVC</title>
+    <style>
+        <?php echo file_get_contents("css/styles/common/common.css");
+        foreach ($this->reqStyles as $style):
+            echo file_get_contents($style);
+        endforeach; ?>
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h4 class="general-title">The best site ever existed</h4>
+    </header>
+    <?php include $this->reqFileName; ?>
+    <footer class="footer">
+        <p class="general-text">All rights are protected by nothing</p>
+    </footer>
+</body>
+</html>

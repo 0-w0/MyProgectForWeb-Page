@@ -1,0 +1,26 @@
+<?php
+/**
+ * @var ClubBlock $this
+ */
+
+use App\Blocks\ClubBlock;
+
+?>
+
+<main class="content">
+    <table class="club-table">
+        <caption class="club-table__caption">The player's info table</caption>
+        <tr class="club-table__row club-table__row_header">
+            <?php foreach ($this->getHeader() as $header): ?>
+                <td class="club-table__cell"><?= $header ?></td>
+            <?php endforeach; ?>
+        </tr>
+        <?php foreach ($this->getContent() as $content => $cell): ?>
+            <tr class="club-table__row">
+                <?php foreach ($cell as $subCell): ?>
+                    <td class="club-table__cell"><?= $subCell ?></td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</main>

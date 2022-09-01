@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Blocks\CountryBlock;
+
 class Country implements ControllersInterface
 {
-    public function getWelcome(): string
+    public function execute()
     {
-        return 'Welcome to the country page!';
+        $countryBlock = new CountryBlock();
+        $countryBlock->render();
     }
 }

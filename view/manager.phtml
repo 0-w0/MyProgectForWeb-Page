@@ -1,0 +1,26 @@
+<?php
+/**
+ * @var ManagerBlock $this
+ */
+
+use App\Blocks\ManagerBlock;
+
+?>
+
+<main class="content">
+    <table class="manager-table">
+        <caption class="manager-table__caption">The manager's info table</caption>
+        <tr class="manager-table__row manager-table__row_header">
+            <?php foreach ($this->getHeader() as $header): ?>
+                <td class="manager-table__cell"><?= $header ?></td>
+            <?php endforeach; ?>
+        </tr>
+        <?php foreach ($this->getContent() as $content => $cell): ?>
+            <tr class="manager-table__row">
+                <?php foreach ($cell as $subCell): ?>
+                    <td class="manager-table__cell"><?= $subCell ?></td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</main>

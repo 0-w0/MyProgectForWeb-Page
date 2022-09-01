@@ -1,0 +1,18 @@
+<?php
+/**
+ * @var HomeBlock $this
+ */
+
+use App\Blocks\HomeBlock;
+
+?>
+
+<main class="content">
+    <h1 class="content__main-header">Welcome to the home page!</h1>
+    <h2 class="content__header">Recent news:</h2>
+    <?php foreach ($this->getContent() as $data => $datum): ?>
+            <?php foreach ($datum as $subDatum): ?>
+                <p class="content__paragraph"><?= $subDatum ?></p>
+            <?php endforeach; ?>
+    <?php endforeach; ?>
+</main>

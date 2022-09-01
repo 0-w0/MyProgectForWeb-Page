@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Blocks\PlayerBlock;
+
 class Player implements ControllersInterface
 {
-    public function getWelcome(): string
+    public function execute()
     {
-        return 'Welcome to the player page!';
+        $playerBlock = new PlayerBlock();
+        $playerBlock->render();
     }
 }

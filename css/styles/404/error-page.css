@@ -1,0 +1,9 @@
+.error-page {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 20pt;
+} 
+
+.error-page__error-number {
+    font-size: 40pt;
+}

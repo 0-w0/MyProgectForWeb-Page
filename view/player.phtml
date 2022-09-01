@@ -1,0 +1,26 @@
+<?php
+/**
+ * @var PlayerBlock $this
+ */
+
+use App\Blocks\PlayerBlock;
+
+?>
+
+<main class="content">
+    <table class="player-table">
+        <caption class="player-table__caption">The player's info table</caption>
+        <tr class="player-table__row player-table__row_header">
+            <?php foreach ($this->getHeader() as $header): ?>
+                <td class="player-table__cell"><?= $header ?></td>
+            <?php endforeach; ?>
+        </tr>
+        <?php foreach ($this->getContent() as $content => $cell): ?>
+            <tr class="player-table__row">
+                <?php foreach ($cell as $subCell): ?>
+                    <td class="player-table__cell"><?= $subCell ?></td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</main>

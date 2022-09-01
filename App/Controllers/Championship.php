@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Blocks\ChampionshipBlock;
+
 class Championship implements ControllersInterface
 {
-    public function getWelcome(): string
+    public function execute()
     {
-        return 'Welcome to the championship page!';
+        $championshipBlock = new ChampionshipBlock();
+        $championshipBlock->render();
     }
 }

@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var CountryBlock $this
+ */
+
+use App\Blocks\CountryBlock;
+
+?>
+
+<main class="content">
+    <?php foreach ($this->getContent() as $content): ?>
+        <section class="content__section section">
+            <h3 class="section__header"><?= $content[0] ?></h3>
+            <p class="section__text"><?= $content[1] ?></p>
+        </section>
+    <?php endforeach; ?>
+</main>

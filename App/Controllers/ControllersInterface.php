@@ -4,5 +4,5 @@ namespace App\Controllers;
 
 interface ControllersInterface
 {
-    public function getWelcome(): string;
+    public function execute();
 }

@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Blocks\ClubBlock;
+
 class Club implements ControllersInterface
 {
-    public function getWelcome(): string
+    public function execute()
     {
-        return 'Welcome to the club page!';
+        $clubBlock = new ClubBlock();
+        $clubBlock->render();
     }
 }

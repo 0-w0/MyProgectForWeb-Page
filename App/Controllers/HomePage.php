@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Blocks\HomeBlock;
+
 class HomePage implements ControllersInterface
 {
-    public function getWelcome(): string
+    public function execute()
     {
-        return 'Welcome to the home page!';
+        $homeBlock = new HomeBlock();
+        $homeBlock->render();
     }
 }

@@ -1,0 +1,17 @@
+<main class="content">
+    <table class="championship-table">
+        <caption class="championship-table__caption">The player's info table</caption>
+        <tr class="championship-table__row championship-table__row_header">
+            <?php foreach ($this->getHeader() as $header): ?>
+                <td class="championship-table__cell"><?= $header ?></td>
+            <?php endforeach; ?>
+        </tr>
+        <?php foreach ($this->getContent() as $content => $cell): ?>
+            <tr class="championship-table__row">
+                <?php foreach ($cell as $subCell): ?>
+                    <td class="championship-table__cell"><?= $subCell ?></td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</main>
