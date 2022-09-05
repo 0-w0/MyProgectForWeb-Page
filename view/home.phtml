@@ -1,18 +1,13 @@
 <?php
-/**
- * @var HomeBlock $this
- */
-
-use App\Blocks\HomeBlock;
-
+/** @var App\Blocks\HomeBlock $this */
 ?>
 
-<main class="content">
-    <h1 class="content__main-header">Welcome to the home page!</h1>
-    <h2 class="content__header">Recent news:</h2>
+<main class="content home">
+    <h1 class="home__main-header">Welcome to the home page!</h1>
+    <h2 class="home__header">Recent news:</h2>
     <?php foreach ($this->getContent() as $data => $datum): ?>
             <?php foreach ($datum as $subDatum): ?>
-                <p class="content__paragraph"><?= $subDatum ?></p>
+                <p class="home__paragraph"><?= $subDatum ?></p>
             <?php endforeach; ?>
     <?php endforeach; ?>
 </main>

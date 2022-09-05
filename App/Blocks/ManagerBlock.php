@@ -2,16 +2,10 @@
 
 namespace App\Blocks;
 
-class ManagerBlock implements BlockInterface
+class ManagerBlock extends BlockParent implements BlockInterface
 {
-    private $reqFileName = APP_ROOT . '/view/manager.phtml';
-    private $reqStyles = [
-    ];
-
-    public function render()
-    {
-        require APP_ROOT . '/view/struct.phtml';
-    }
+    protected $includedFileName = APP_ROOT . '/view/manager.phtml';
+    protected $includedStyles = ["css/styles/manager/manager.css"];
 
     public function getHeader(): iterable
     {

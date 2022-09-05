@@ -1,0 +1,9 @@
+.main-table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.main-table__row,
+.main-table__cell {
+    border-style: solid;
+}

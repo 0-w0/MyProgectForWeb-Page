@@ -2,16 +2,13 @@
 
 namespace App\Blocks;
 
-class ChampionshipBlock implements BlockInterface
+class ChampionshipBlock extends BlockParent implements BlockInterface
 {
-    private $reqFileName = APP_ROOT . '/view/championship.phtml';
-    private $reqStyles = [
+    protected $includedFileName = APP_ROOT . '/view/championship.phtml';
+    protected $includedStyles = [
+        "css/styles/common/main-table.css",
+        "css/styles/championship/championship.css"
     ];
-
-    public function render()
-    {
-        require APP_ROOT . '/view/struct.phtml';
-    }
 
     public function getHeader(): iterable
     {

@@ -1,0 +1,12 @@
+.championship__main-table {
+    min-height: 100vh;
+}
+
+.championship__caption {
+
+}
+
+.championship__row,
+.championship__cell {
+    border-color: aqua;
+}

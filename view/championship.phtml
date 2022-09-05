@@ -1,15 +1,19 @@
-<main class="content">
-    <table class="championship-table">
-        <caption class="championship-table__caption">The player's info table</caption>
-        <tr class="championship-table__row championship-table__row_header">
+<?php
+/** @var App\Blocks\ChampionshipBlock $this */
+?>
+
+<main class="content championship">
+    <table class="championship__main-table main-table">
+        <caption class="championship__caption main-table__caption">The championships from the entire world</caption>
+        <tr class="main-table__row main-table__row_header">
             <?php foreach ($this->getHeader() as $header): ?>
-                <td class="championship-table__cell"><?= $header ?></td>
+                <td class="championship__cell main-table__cell"><?= $header ?></td>
             <?php endforeach; ?>
         </tr>
         <?php foreach ($this->getContent() as $content => $cell): ?>
-            <tr class="championship-table__row">
+            <tr class="championship__row main-table__row">
                 <?php foreach ($cell as $subCell): ?>
-                    <td class="championship-table__cell"><?= $subCell ?></td>
+                    <td class="championship__cell main-table__cell"><?= $subCell ?></td>
                 <?php endforeach; ?>
             </tr>
         <?php endforeach; ?>

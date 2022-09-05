@@ -2,17 +2,10 @@
 
 namespace App\Blocks;
 
-class ClubBlock implements BlockInterface
+class ClubBlock extends BlockParent implements BlockInterface
 {
-    private $reqFileName = APP_ROOT . '/view/club.phtml';
-    private $reqStyles = [
-
-    ];
-
-    public function render()
-    {
-        require APP_ROOT . '/view/struct.phtml';
-    }
+    protected $includedFileName = APP_ROOT . '/view/club.phtml';
+    protected $includedStyles = ["css/styles/club/club.css"];
 
     public function getHeader(): iterable
     {

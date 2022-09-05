@@ -2,17 +2,10 @@
 
 namespace App\Blocks;
 
-class CountryBlock implements BlockInterface
+class CountryBlock extends BlockParent implements BlockInterface
 {
-    private $reqFileName = APP_ROOT . '/view/country.phtml';
-    private $reqStyles = [
-
-    ];
-
-    public function render()
-    {
-        require APP_ROOT . '/view/struct.phtml';
-    }
+    protected $includedFileName = APP_ROOT . '/view/country.phtml';
+    protected $includedStyles = ["css/styles/country/country.css"];
 
     public function getContent(): iterable
     {
