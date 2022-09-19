@@ -2,6 +2,7 @@
 
 namespace App\Routers;
 
+use App\Controllers\AddClub;
 use App\Controllers\HomePage;
 use App\Controllers\Championship;
 use App\Controllers\Club;
@@ -9,6 +10,7 @@ use App\Controllers\Player;
 use App\Controllers\Manager;
 use App\Controllers\Country;
 use App\Controllers\ErrorPage;
+use App\Controllers\AddChampionship;
 
 class Router
 {
@@ -37,6 +39,14 @@ class Router
 
             case '/country': {
                 return new Country();
+            }
+
+            case '/championship/add': {
+                return new AddChampionship();
+            }
+
+            case '/club/add': {
+                return new AddClub();
             }
 
             default: {

@@ -2,7 +2,8 @@
     "require": {
         "squizlabs/php_codesniffer": "*",
         "phpoffice/phpspreadsheet": "^1.23",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "ext-pdo": "*"
     },
     "config": {
         "platform-check": false,

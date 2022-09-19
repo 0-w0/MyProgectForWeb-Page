@@ -3,10 +3,13 @@
 ?>
 
 <main class="content">
-    <?php foreach ($this->getContent() as $content): ?>
-        <section class="content__section section">
-            <h3 class="section__header"><?= $content[0] ?></h3>
-            <p class="section__text"><?= $content[1] ?></p>
-        </section>
-    <?php endforeach; ?>
+    <table>
+        <?php foreach ($this->getContent() as $content => $cell): ?>
+            <tr class="table__row">
+                <?php foreach ($cell as $subCell): ?>
+                    <td class="table__cell"><?= $subCell ?></td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 </main>

@@ -18,4 +18,16 @@
             </tr>
         <?php endforeach; ?>
     </table>
+
+    <form class="adding-form" method="post" action="/championship/add">
+        <p class="adding-form__title">Championship name:</p>
+        <input class="adding-form__input" name="name" type="text">
+        <p class="adding-form__title">Country-holder:</p>
+        <input class="adding-form__input" name="country_id" type="text">
+        <p class="adding-form__title">Begin date:</p>
+        <input class="adding-form__input" name="begin_date" type="date">
+        <p class="adding-form__title">Close date:</p>
+        <input class="adding-form__input" name="end_date" type="date">
+        <button>go</button>
+    </form>
 </main>
