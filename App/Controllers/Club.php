@@ -3,16 +3,16 @@
 namespace App\Controllers;
 
 use App\Blocks\ClubBlock;
-use App\Database\Database;
+use App\Resource\Resource;
 
 class Club implements ControllersInterface
 {
+    private $tableName = 'club';
+
     public function execute()
     {
-        $connection = Database::getConnection();
-        $query = $connection->query('SELECT * FROM club');
-
+        $model = Resource::getConnection($this->tableName);
         $clubBlock = new ClubBlock();
-        $clubBlock->setContent($query->fetchAll())->render();
+        $clubBlock->setContent($model->getData())->render();
     }
 }

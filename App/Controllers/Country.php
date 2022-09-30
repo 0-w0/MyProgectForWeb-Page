@@ -4,15 +4,16 @@ namespace App\Controllers;
 
 use App\Blocks\CountryBlock;
 use App\Database\Database;
+use App\Resource\Resource;
 
 class Country implements ControllersInterface
 {
+    private $tableName = 'country';
+
     public function execute()
     {
-        $connection = Database::getConnection();
-        $query = $connection->query('SELECT * FROM country');
-
+        $model = Resource::getConnection($this->tableName);
         $countryBlock = new CountryBlock();
-        $countryBlock->setContent($query->fetchAll())->render();
+        $countryBlock->setContent($model->getData())->render();
     }
 }

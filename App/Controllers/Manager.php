@@ -3,16 +3,16 @@
 namespace App\Controllers;
 
 use App\Blocks\ManagerBlock;
-use App\Database\Database;
+use App\Resource\Resource;
 
 class Manager implements ControllersInterface
 {
+    private $tableName = 'manager';
+
     public function execute()
     {
-        $connection = Database::getConnection();
-        $query = $connection->query('SELECT * FROM manager');
-
+        $model = Resource::getConnection($this->tableName);
         $managerBlock = new ManagerBlock();
-        $managerBlock->setContent($query->fetchAll())->render();
+        $managerBlock->setContent($model->getData())->render();
     }
 }

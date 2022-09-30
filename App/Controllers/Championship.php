@@ -3,16 +3,16 @@
 namespace App\Controllers;
 
 use App\Blocks\ChampionshipBlock;
-use App\Database\Database;
+use App\Resource\Resource;
 
 class Championship implements ControllersInterface
 {
+    private $tableName = 'championship';
+
     public function execute()
     {
-        $connection = Database::getConnection();
-        $query = $connection->query('SELECT * FROM championship');
-
+        $model = Resource::getConnection($this->tableName);
         $championshipBlock = new ChampionshipBlock();
-        $championshipBlock->setContent($query->fetchAll())->render();
+        $championshipBlock->setContent($model->getData())->render();
     }
 }

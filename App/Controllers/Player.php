@@ -3,16 +3,16 @@
 namespace App\Controllers;
 
 use App\Blocks\PlayerBlock;
-use App\Database\Database;
+use App\Resource\Resource;
 
 class Player implements ControllersInterface
 {
+    private $tableName = 'player';
+
     public function execute()
     {
-        $connection = Database::getConnection();
-        $query = $connection->query('SELECT * FROM player');
-
+        $model = Resource::getConnection($this->tableName);
         $playerBlock = new PlayerBlock();
-        $playerBlock->setContent($query->fetchAll())->render();
+        $playerBlock->setContent($model->getData())->render();
     }
 }

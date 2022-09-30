@@ -2,14 +2,11 @@
 
 namespace App\Blocks;
 
-class HomeBlock extends BlockParent implements BlockInterface
+class HomeBlock extends BlockParent
 {
     protected $includedFileName = APP_ROOT . '/view/home.phtml';
     protected $includedStyles = ["css/styles/home/home.css"];
-
-    public function getContent(): iterable
-    {
-        return [
+    protected $data = [
             [
                 'What is Lorem Ipsum?',
                 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
@@ -66,5 +63,4 @@ class HomeBlock extends BlockParent implements BlockInterface
                 or one who avoids a pain that produces no resultant pleasure?"'
             ],
         ];
-    }
 }
