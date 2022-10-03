@@ -3,16 +3,16 @@
 namespace App\Controllers;
 
 use App\Blocks\ClubBlock;
+use App\Model\ClubModel;
 use App\Resource\Resource;
 
 class Club implements ControllersInterface
 {
-    private $tableName = 'club';
-
     public function execute()
     {
-        $model = Resource::getConnection($this->tableName);
+        $clubModel = new ClubModel();
+        $clubModel->setData(Resource::getConnection($clubModel->getTableName()));
         $clubBlock = new ClubBlock();
-        $clubBlock->setContent($model->getData())->render();
+        $clubBlock->render($clubModel);
     }
 }

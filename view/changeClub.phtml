@@ -1,0 +1,13 @@
+<?php
+/** @var App\Blocks\ChangeClubBlock $this */
+?>
+
+<main class="content">
+    <form class="changing-form" method="post" action="/club/changeSubmit">
+        <p class="changing-form__title">ID to change:</p>
+        <input class="changing-form__input" name="id" type="number" value="<?= $this->getId() ?>" readonly>
+        <p class="changing-form__title">Name to change:</p>
+        <input class="changing-form__input" name="name" type="text" placeholder="<?= $this->getName() ?>">
+        <button>go</button>
+    </form>
+</main>

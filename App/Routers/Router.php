@@ -3,6 +3,8 @@
 namespace App\Routers;
 
 use App\Controllers\AddClub;
+use App\Controllers\ChangeClub;
+use App\Controllers\ChangeSubmit;
 use App\Controllers\HomePage;
 use App\Controllers\Championship;
 use App\Controllers\Club;
@@ -16,6 +18,10 @@ class Router
 {
     public function switchControllers(string $path)
     {
+        if(preg_match("/\\/club\\/change.*[1-9]+/", $path)) {
+            return new ChangeClub();
+        }
+
         switch ($path) {
             case '/': {
                 return new HomePage();
@@ -47,6 +53,10 @@ class Router
 
             case '/club/add': {
                 return new AddClub();
+            }
+
+            case '/club/changeSubmit': {
+                return new ChangeSubmit();
             }
 
             default: {
