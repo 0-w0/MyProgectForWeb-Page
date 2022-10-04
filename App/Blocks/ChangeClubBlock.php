@@ -11,16 +11,11 @@ class ChangeClubBlock extends BlockParent
 
     public function getId()
     {
-        foreach ($this->getContent() as $content)
-            return $content;
-        return null;
+        return reset($this->data);
     }
 
     public function getName()
     {
-        $a = 0;
-        foreach ($this->getContent() as $content)
-            $a = $content;
-        return $a;
+        return end($this->data);
     }
 }

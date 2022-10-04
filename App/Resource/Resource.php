@@ -12,4 +12,12 @@ class Resource
         $query = $connection->query("SELECT * FROM $tableName");
         return $query->fetchAll();
     }
+
+    static function getSingle($tableName, $id): iterable
+    {
+        $connection = Database::getConnection();
+        $query = $connection->prepare("SELECT * FROM {$tableName} WHERE {$tableName}_id={$id}");
+        $query->execute();
+        return $query->fetchAll();
+    }
 }

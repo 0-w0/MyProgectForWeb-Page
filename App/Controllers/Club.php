@@ -11,7 +11,12 @@ class Club implements ControllersInterface
     public function execute()
     {
         $clubModel = new ClubModel();
-        $clubModel->setData(Resource::getConnection($clubModel->getTableName()));
+        if ($_GET['id'] != '') {
+            $clubModel->setData(Resource::getSingle($clubModel->getTableName(), $_GET['id']));
+        }
+        else {
+            $clubModel->setData(Resource::getConnection($clubModel->getTableName()));
+        }
         $clubBlock = new ClubBlock();
         $clubBlock->render($clubModel);
     }

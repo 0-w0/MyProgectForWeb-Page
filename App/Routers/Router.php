@@ -16,35 +16,36 @@ use App\Controllers\AddChampionship;
 
 class Router
 {
+
     public function switchControllers(string $path)
     {
         if(preg_match("/\\/club\\/change.*[1-9]+/", $path)) {
             return new ChangeClub();
         }
 
+        if(preg_match("/\\/player(.*[1-9]+|)/", $path)) {
+            return new Player();
+        }
+
+        if(preg_match("/\\/championship(.*[1-9]+|)/", $path)) {
+            return new Championship();
+        }
+
+        if(preg_match("/\\/club(.*[1-9]+|)/", $path)) {
+            return new Club();
+        }
+
+        if(preg_match("/\\/manager(.*[1-9]+|)/", $path)) {
+            return new Manager();
+        }
+
+        if(preg_match("/\\/country(.*[1-9]+|)/", $path)) {
+            return new Country();
+        }
+
         switch ($path) {
             case '/': {
                 return new HomePage();
-            }
-
-            case '/championship': {
-                return new Championship();
-            }
-
-            case '/club': {
-                return new Club();
-            }
-
-            case '/player': {
-                return new Player();
-            }
-
-            case '/manager': {
-                return new Manager();
-            }
-
-            case '/country': {
-                return new Country();
             }
 
             case '/championship/add': {

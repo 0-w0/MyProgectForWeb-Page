@@ -11,7 +11,12 @@ class Championship implements ControllersInterface
     public function execute()
     {
         $championshipModel = new ChampionshipModel();
-        $championshipModel->setData(Resource::getConnection($championshipModel->getTableName()));
+        if ($_GET['id'] != '') {
+            $championshipModel->setData(Resource::getSingle($championshipModel->getTableName(), $_GET['id']));
+        }
+        else {
+            $championshipModel->setData(Resource::getConnection($championshipModel->getTableName()));
+        }
         $championshipBlock = new ChampionshipBlock();
         $championshipBlock->render($championshipModel);
     }

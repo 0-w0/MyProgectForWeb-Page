@@ -11,7 +11,12 @@ class Manager implements ControllersInterface
     public function execute()
     {
         $managerModel = new ManagerModel();
-        $managerModel->setData(Resource::getConnection($managerModel->getTableName()));
+        if ($_GET['id'] != '') {
+            $managerModel->setData(Resource::getSingle($managerModel->getTableName(), $_GET['id']));
+        }
+        else {
+            $managerModel->setData(Resource::getConnection($managerModel->getTableName()));
+        }
         $managerBlock = new ManagerBlock();
         $managerBlock->render($managerModel);
     }
