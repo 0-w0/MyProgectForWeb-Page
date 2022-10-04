@@ -3,19 +3,18 @@
 namespace App\Controllers;
 
 use App\Blocks\CountryBlock;
-use App\Model\CountryModel;
-use App\Resource\Resource;
+use App\Repository\CountryRepository;
 
 class Country implements ControllersInterface
 {
     public function execute()
     {
-        $countryModel = new CountryModel();
+        $countryRepository = new CountryRepository();
         if ($_GET['id'] != '') {
-            $countryModel->setData(Resource::getSingle($countryModel->getTableName(), $_GET['id']));
+            $countryModel = $countryRepository->getById($_GET['id']);
         }
         else {
-            $countryModel->setData(Resource::getConnection($countryModel->getTableName()));
+            $countryModel = $countryRepository->getAllData();
         }
         $countryBlock = new CountryBlock();
         $countryBlock->render($countryModel);

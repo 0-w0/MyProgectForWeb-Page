@@ -14,9 +14,9 @@ class ChangeClub
 
         if ($id) {
             $addClubResource = new ChangeClubResource();
-            $data = $addClubResource->executeQuery($id);
+            $name = $addClubResource->executeQuery($id);
             $changeClubModel = new ChangeClubModel();
-            $changeClubModel->setData($data);
+            $changeClubModel->setSpecificData($id, $name);
             $changeClubBlock = new ChangeClubBlock();
             $changeClubBlock->render($changeClubModel);
         }

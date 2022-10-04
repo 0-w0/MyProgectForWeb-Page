@@ -3,19 +3,18 @@
 namespace App\Controllers;
 
 use App\Blocks\ClubBlock;
-use App\Model\ClubModel;
-use App\Resource\Resource;
+use App\Repository\ClubRepository;
 
 class Club implements ControllersInterface
 {
     public function execute()
     {
-        $clubModel = new ClubModel();
+        $clubRepository = new ClubRepository();
         if ($_GET['id'] != '') {
-            $clubModel->setData(Resource::getSingle($clubModel->getTableName(), $_GET['id']));
+            $clubModel = $clubRepository->getById($_GET['id']);
         }
         else {
-            $clubModel->setData(Resource::getConnection($clubModel->getTableName()));
+            $clubModel = $clubRepository->getAllData();
         }
         $clubBlock = new ClubBlock();
         $clubBlock->render($clubModel);

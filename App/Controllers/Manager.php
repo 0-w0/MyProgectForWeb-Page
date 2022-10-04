@@ -3,19 +3,18 @@
 namespace App\Controllers;
 
 use App\Blocks\ManagerBlock;
-use App\Model\ManagerModel;
-use App\Resource\Resource;
+use App\Repository\ManagerRepository;
 
 class Manager implements ControllersInterface
 {
     public function execute()
     {
-        $managerModel = new ManagerModel();
+        $managerRepository = new ManagerRepository();
         if ($_GET['id'] != '') {
-            $managerModel->setData(Resource::getSingle($managerModel->getTableName(), $_GET['id']));
+            $managerModel = $managerRepository->getById($_GET['id']);
         }
         else {
-            $managerModel->setData(Resource::getConnection($managerModel->getTableName()));
+            $managerModel = $managerRepository->getAllData();
         }
         $managerBlock = new ManagerBlock();
         $managerBlock->render($managerModel);

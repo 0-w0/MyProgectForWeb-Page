@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Blocks\ChampionshipBlock;
+use App\Repository\ChampionshipRepository;
 use App\Model\ChampionshipModel;
 use App\Resource\Resource;
 
@@ -10,12 +11,12 @@ class Championship implements ControllersInterface
 {
     public function execute()
     {
-        $championshipModel = new ChampionshipModel();
+        $championshipRepository = new ChampionshipRepository();
         if ($_GET['id'] != '') {
-            $championshipModel->setData(Resource::getSingle($championshipModel->getTableName(), $_GET['id']));
+            $championshipModel = $championshipRepository->getById($_GET['id']);
         }
         else {
-            $championshipModel->setData(Resource::getConnection($championshipModel->getTableName()));
+            $championshipModel = $championshipRepository->getAllData();
         }
         $championshipBlock = new ChampionshipBlock();
         $championshipBlock->render($championshipModel);

@@ -2,8 +2,6 @@
 
 namespace App\Blocks;
 
-use App\Model\Model;
-
 class ChangeClubBlock extends BlockParent
 {
     protected $includedFileName = APP_ROOT . '/view/changeClub.phtml';
@@ -11,11 +9,11 @@ class ChangeClubBlock extends BlockParent
 
     public function getId()
     {
-        return reset($this->data);
+        return $this->model->getClubId();
     }
 
     public function getName()
     {
-        return end($this->data);
+        return $this->model->getClubName();
     }
 }

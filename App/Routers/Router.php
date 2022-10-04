@@ -19,6 +19,28 @@ class Router
 
     public function switchControllers(string $path)
     {
+        switch ($path) {
+            case '/':
+            {
+                return new HomePage();
+            }
+
+            case '/championship/add':
+            {
+                return new AddChampionship();
+            }
+
+            case '/club/add':
+            {
+                return new AddClub();
+            }
+
+            case '/club/changeSubmit':
+            {
+                return new ChangeSubmit();
+            }
+        }
+
         if(preg_match("/\\/club\\/change.*[1-9]+/", $path)) {
             return new ChangeClub();
         }
@@ -43,26 +65,6 @@ class Router
             return new Country();
         }
 
-        switch ($path) {
-            case '/': {
-                return new HomePage();
-            }
-
-            case '/championship/add': {
-                return new AddChampionship();
-            }
-
-            case '/club/add': {
-                return new AddClub();
-            }
-
-            case '/club/changeSubmit': {
-                return new ChangeSubmit();
-            }
-
-            default: {
-                return new ErrorPage();
-            }
-        }
+        return new ErrorPage();
     }
 }

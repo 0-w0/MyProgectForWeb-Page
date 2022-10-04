@@ -3,20 +3,18 @@
 namespace App\Controllers;
 
 use App\Blocks\PlayerBlock;
-use App\Model\PlayerModel;
-use App\Resource\Resource;
+use App\Repository\PlayerRepository;
 
-use App\Database\Database;
 class Player implements ControllersInterface
 {
     public function execute()
     {
-        $playerModel = new PlayerModel();
+        $playerRepository = new PlayerRepository();
         if ($_GET['id'] != '') {
-            $playerModel->setData(Resource::getSingle($playerModel->getTableName(), $_GET['id']));
+            $playerModel = $playerRepository->getById($_GET['id']);
         }
         else {
-            $playerModel->setData(Resource::getConnection($playerModel->getTableName()));
+            $playerModel = $playerRepository->getAllData();
         }
         $playerBlock = new PlayerBlock();
         $playerBlock->render($playerModel);
