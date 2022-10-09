@@ -12,6 +12,6 @@ class ChampionshipBlock extends BlockParent
 
     public function getHeader(): iterable
     {
-        return ['id', 'name', 'country', 'beginDate', 'endDate',];
+        return ['id', 'name', 'country', 'beginDate', 'endDate', ''];
     }
 }

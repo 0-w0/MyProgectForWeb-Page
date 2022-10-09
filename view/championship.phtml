@@ -12,9 +12,13 @@
         </tr>
         <?php foreach ($this->getContent() as $content => $cell): ?>
             <tr class="championship__row main-table__row">
-                <?php foreach ($cell as $subCell): ?>
-                    <td class="championship__cell main-table__cell"><?= $subCell ?></td>
-                <?php endforeach; ?>
+                <form class="delete_row" method="get" action="/championship/delete">
+                    <input name="id" type="hidden" value="<?= $cell['championship_id'] ?>">
+                    <?php foreach ($cell as $subCell): ?>
+                        <td class="championship__cell main-table__cell"><?= $subCell ?></td>
+                    <?php endforeach; ?>
+                    <td class="button"><button class="delete">delete</button></td>
+                </form>
             </tr>
         <?php endforeach; ?>
     </table>

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Model\Environment;
 use App\Resource\ChangeSubmitResource;
 
 class ChangeSubmit
@@ -13,7 +14,6 @@ class ChangeSubmit
         $ChangeSubmitResource = new ChangeSubmitResource();
         $ChangeSubmitResource->executeQuery($name, $id);
         echo $_POST['name'].' was changed';
-        header('Location: http://localhost:8080/club', true, 304);
-        die();
+        header("Location: ".Environment::getInstance()->getBaseUrl()."/club", true, 304);
     }
 }

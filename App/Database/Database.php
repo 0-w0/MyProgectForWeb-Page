@@ -2,6 +2,8 @@
 
 namespace App\Database;
 
+use App\Model\Environment;
+
 class Database
 {
     protected static $connection;
@@ -12,11 +14,17 @@ class Database
             return self::$connection;
         }
 
-        $host = '127.0.0.1';
-        $db   = 'competitions';
-        $user = 'root';
-        $pass = '123456';
-        $charset = 'utf8';
+        if (self::$connection) {
+            return self::$connection;
+        }
+
+        $environment = Environment::getInstance();
+
+        $host = $environment->getDatabaseHost();
+        $db   = $environment->getDatabaseName();
+        $user = $environment->getDatabaseUser();
+        $pass = $environment->getDatabasePassword();
+        $charset = $environment->getDatabaseCharset();
 
         $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
         $opt = [

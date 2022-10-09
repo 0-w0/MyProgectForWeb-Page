@@ -13,10 +13,10 @@ use App\Controllers\Manager;
 use App\Controllers\Country;
 use App\Controllers\ErrorPage;
 use App\Controllers\AddChampionship;
+use App\Controllers\DeleteChampionship;
 
 class Router
 {
-
     public function switchControllers(string $path)
     {
         switch ($path) {
@@ -41,27 +41,31 @@ class Router
             }
         }
 
-        if(preg_match("/\\/club\\/change.*[1-9]+/", $path)) {
+        if (preg_match("/\\/championship\\/delete(.*[1-9]+|)/", $path)) {
+            return new DeleteChampionship();
+        }
+
+        if (preg_match("/\\/club\\/change.*[1-9]+/", $path)) {
             return new ChangeClub();
         }
 
-        if(preg_match("/\\/player(.*[1-9]+|)/", $path)) {
+        if (preg_match("/\\/player(.*[1-9]+|)/", $path)) {
             return new Player();
         }
 
-        if(preg_match("/\\/championship(.*[1-9]+|)/", $path)) {
+        if (preg_match("/\\/championship(.*[1-9]+|)/", $path)) {
             return new Championship();
         }
 
-        if(preg_match("/\\/club(.*[1-9]+|)/", $path)) {
+        if (preg_match("/\\/club(.*[1-9]+|)/", $path)) {
             return new Club();
         }
 
-        if(preg_match("/\\/manager(.*[1-9]+|)/", $path)) {
+        if (preg_match("/\\/manager(.*[1-9]+|)/", $path)) {
             return new Manager();
         }
 
-        if(preg_match("/\\/country(.*[1-9]+|)/", $path)) {
+        if (preg_match("/\\/country(.*[1-9]+|)/", $path)) {
             return new Country();
         }
 
