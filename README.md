@@ -55,7 +55,7 @@ In App directory:
 
 ## Classes and methods
 
-* App\Blocks\BlockParent
+#### App\Blocks\BlockParent
 Fields:
 ```php
     protected $templatePath = APP_ROOT . '/view/struct.phtml';
@@ -69,12 +69,12 @@ Methods:
     public function getContent(): iterable;
     protected function setContent(iterable $data): self;
 ```
-* App\Controllers\ControllersInterface
+#### App\Controllers\ControllersInterface
 Methods:
 ```php
 public function execute()
 ```
-* App\Database\Database
+#### App\Database\Database
 Fields:
 ```php
     protected static $connection;
@@ -83,7 +83,7 @@ Methods:
 ```php
     public static function getConnection(): \PDO;
 ```
-* App\Model\Model
+#### App\Model\Model
 Fields:
 ```php
     protected $data = [];
@@ -95,7 +95,7 @@ Methods:
     public function getTableName(): string
     public function setTableName(string $tableName): void
 ```
-* App\Model\ChangeClubModel
+#### App\Model\ChangeClubModel
 This class extends App\Model\Model
 Fields:
 ```php
@@ -108,7 +108,7 @@ Methods:
     public function getClubId();
     public function getClubName()
 ```
-* App\Model\Envirenment
+#### App\Model\Envirenment
 
 This is final class.
 
@@ -127,7 +127,7 @@ Methods:
     public function getDatabaseCharset(): string;
     public function getBaseUrl(): string;
 ```
-* App\Repository\Repository
+#### App\Repository\Repository
 Fields:
 ```php
     protected $model;
@@ -137,13 +137,13 @@ Methods:
     public function getById(int $id);
     public function getAllData();
 ```
-* App\Resource\Resource
+#### App\Resource\Resource
 Methods:
 ```php
     static function getConnection($tableName): iterable;
     static function getSingle($tableName, $id): iterable;
 ```
-* App\Resource\AddResourceParent;
+#### App\Resource\AddResourceParent;
 Fields:
 ```php
     protected $query = '';
@@ -152,7 +152,7 @@ Methods:
 ```php
     protected function prepareQuery();
 ```
-* App\Routers\Router
+#### App\Routers\Router
 Methods:
 ```php
     public function switchControllers(string $path);
