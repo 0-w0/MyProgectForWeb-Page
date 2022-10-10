@@ -7,13 +7,15 @@ use App\Resource\ChangeSubmitResource;
 
 class ChangeSubmit
 {
+    protected $redirectPath = '/club';
+
     public function execute()
     {
-        $name = $_POST['name'];
-        $id = $_POST['id'];
+        $name = $_POST['name'] ?? '';
+        $id = $_POST['id'] ?? '';
         $ChangeSubmitResource = new ChangeSubmitResource();
         $ChangeSubmitResource->executeQuery($name, $id);
         echo $_POST['name'].' was changed';
-        header("Location: ".Environment::getInstance()->getBaseUrl()."/club", true, 304);
+        Environment::getInstance()->getHeader($this->redirectPath);
     }
 }

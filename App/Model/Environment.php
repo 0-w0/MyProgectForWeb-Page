@@ -7,11 +7,6 @@ final class Environment
     private static $instance = null;
     private $settings;
 
-    private function __construct()
-    {
-        $this->settings = parse_ini_file(APP_ROOT . '/.env');
-    }
-
     public static function getInstance(): Environment
     {
         if (self::$instance === null) {
@@ -46,9 +41,19 @@ final class Environment
         return $this->settings['CHARSET'] ?? '';
     }
 
-    public function getBaseUrl(): string
+    public function getHeader(string $path): void
+    {
+        header('Location: '.Environment::getInstance()->getBaseUrl()."$path", true, 304);
+    }
+
+    private function getBaseUrl(): string
     {
         return $this->settings['PORT'] ?? '';
+    }
+
+    private function __construct()
+    {
+        $this->settings = parse_ini_file(APP_ROOT . '/.env');
     }
 
     private function __clone()

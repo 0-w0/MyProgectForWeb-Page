@@ -6,7 +6,7 @@ use App\Database\Database;
 
 class ChangeSubmitResource
 {
-    public function executeQuery($name, $id)
+    public function executeQuery($name, $id): self
     {
         $connection = Database::getConnection();
         $query = $connection->prepare("UPDATE club SET name='{$name}' WHERE club_id={$id}");

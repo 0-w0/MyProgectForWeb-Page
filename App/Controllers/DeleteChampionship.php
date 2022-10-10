@@ -7,13 +7,15 @@ use App\Resource\DeleteChampionshipResource;
 
 class DeleteChampionship
 {
+    protected $redirectPath = '/championship';
+
     public function execute()
     {
-        $id = $_GET['id'];
+        $id = $_GET['id'] ?? '';
         if ($id) {
             $deleteChampionshipResource = new DeleteChampionshipResource();
             $deleteChampionshipResource->executeQuery($id);
         }
-        header("Location: ".Environment::getInstance()->getBaseUrl()."/championship", true, 304);
+        Environment::getInstance()->getHeader($this->redirectPath);
     }
 }

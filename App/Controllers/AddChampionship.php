@@ -7,6 +7,8 @@ use App\Resource\AddChampionshipAddResource;
 
 class AddChampionship
 {
+    protected $redirectPath = '/championship';
+
     public function execute()
     {
         $name = $_POST['name'] ?? '';
@@ -18,6 +20,6 @@ class AddChampionship
         $addChampionshipResource->executeQuery($name, $countryId, $beginDate, $endDate);
 
         echo $_POST['name'].' was added';
-        header("Location: ".Environment::getInstance()->getBaseUrl()."/championship", true, 304);
+        Environment::getInstance()->getHeader($this->redirectPath);
     }
 }

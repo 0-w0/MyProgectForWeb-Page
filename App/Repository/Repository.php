@@ -10,13 +10,13 @@ class Repository
 
     public function getById(int $id)
     {
-        $this->model->setData(Resource::getSingle($this->model->getTableName(), $id));
+        $this->model->setData(Resource::getTableData($this->model->getTableName(), $id));
         return $this->model;
     }
 
     public function getAllData()
     {
-        $this->model->setData(Resource::getConnection($this->model->getTableName()));
+        $this->model->setData(Resource::getTableData($this->model->getTableName()));
         return $this->model;
     }
 }

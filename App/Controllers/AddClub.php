@@ -7,15 +7,17 @@ use App\Resource\AddClubAddResource;
 
 class AddClub
 {
+    protected $redirectPath = '/club';
+
     public function execute()
     {
-        $name = $_POST['name'];
+        $name = $_POST['name'] ?? '';
 
         if ($name) {
             $addClubResource = new AddClubAddResource();
             $addClubResource->executeQuery($name);
         }
         echo $_POST['name'].' was added';
-        header("Location: ".Environment::getInstance()->getBaseUrl()."/club", true, 304);
+        Environment::getInstance()->getHeader($this->redirectPath);
     }
 }

@@ -6,18 +6,15 @@ use App\Database\Database;
 
 class Resource
 {
-    static function getConnection($tableName): iterable
+    static function getTableData($tableName, $id = null)
     {
         $connection = Database::getConnection();
-        $query = $connection->query("SELECT * FROM $tableName");
-        return $query->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    static function getSingle($tableName, $id): iterable
-    {
-        $connection = Database::getConnection();
-        $query = $connection->prepare("SELECT * FROM {$tableName} WHERE {$tableName}_id={$id}");
-        $query->execute();
+        if ($id) {
+            $query = $connection->prepare("SELECT * FROM {$tableName} WHERE {$tableName}_id={$id}");
+            $query->execute();
+        } else {
+            $query = $connection->query("SELECT * FROM $tableName");
+        }
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

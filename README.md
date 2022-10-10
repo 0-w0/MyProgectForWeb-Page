@@ -108,7 +108,7 @@ Methods:
     public function getClubId();
     public function getClubName()
 ```
-#### App\Model\Envirenment
+#### App\Model\Environment
 
 This is final class.
 
@@ -134,14 +134,13 @@ Fields:
 ```
 Methods:
 ```php
-    public function getById(int $id);
+    public function getTableData(int $id);
     public function getAllData();
 ```
 #### App\Resource\Resource
 Methods:
 ```php
-    static function getConnection($tableName): iterable;
-    static function getSingle($tableName, $id): iterable;
+    static function getTableData($tableName, $id = null): iterable;
 ```
 #### App\Resource\AddResourceParent;
 Fields:

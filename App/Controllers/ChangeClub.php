@@ -10,7 +10,7 @@ class ChangeClub
 {
     public function execute()
     {
-        $id = $_GET['id'];
+        $id = $_GET['id'] ?? '';
 
         if ($id) {
             $addClubResource = new ChangeClubResource();

@@ -17,56 +17,30 @@ use App\Controllers\DeleteChampionship;
 
 class Router
 {
+    protected static $routesWithIdMap = [
+        '/' => HomePage::class,
+        '/championship/add' => AddChampionship::class,
+        '/club/add' => AddClub::class,
+        '/club/changeSubmit' => ChangeSubmit::class,
+        "/championship/delete" => DeleteChampionship::class,
+        '/club/change' => ChangeClub::class,
+        '/player' => Player::class,
+        '/championship' => Championship::class,
+        '/club' => Club::class,
+        '/manager' => Manager::class,
+        '/country' => Country::class,
+    ];
+
     public function switchControllers(string $path)
     {
-        switch ($path) {
-            case '/':
-            {
-                return new HomePage();
+        if (strstr($path, '?')) {
+            $path = strstr($path, '?', true);
+        }
+
+        foreach (Router::$routesWithIdMap as $route => $controllerClass) {
+            if ($route == $path) {
+                return new $controllerClass;
             }
-
-            case '/championship/add':
-            {
-                return new AddChampionship();
-            }
-
-            case '/club/add':
-            {
-                return new AddClub();
-            }
-
-            case '/club/changeSubmit':
-            {
-                return new ChangeSubmit();
-            }
-        }
-
-        if (preg_match("/\\/championship\\/delete(.*[1-9]+|)/", $path)) {
-            return new DeleteChampionship();
-        }
-
-        if (preg_match("/\\/club\\/change.*[1-9]+/", $path)) {
-            return new ChangeClub();
-        }
-
-        if (preg_match("/\\/player(.*[1-9]+|)/", $path)) {
-            return new Player();
-        }
-
-        if (preg_match("/\\/championship(.*[1-9]+|)/", $path)) {
-            return new Championship();
-        }
-
-        if (preg_match("/\\/club(.*[1-9]+|)/", $path)) {
-            return new Club();
-        }
-
-        if (preg_match("/\\/manager(.*[1-9]+|)/", $path)) {
-            return new Manager();
-        }
-
-        if (preg_match("/\\/country(.*[1-9]+|)/", $path)) {
-            return new Country();
         }
 
         return new ErrorPage();
