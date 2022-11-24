@@ -43,7 +43,7 @@ final class Environment
 
     public function getHeader(string $path): void
     {
-        header('Location: '.Environment::getInstance()->getBaseUrl()."$path", true, 304);
+        header('Location: '.Environment::getInstance()->getBaseUrl()."$path");
     }
 
     private function getBaseUrl(): string

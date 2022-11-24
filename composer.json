@@ -1,10 +1,9 @@
 {
+    "name": "uwu/my-progect-for-web-page",
     "require": {
-        "squizlabs/php_codesniffer": "*",
-        "phpoffice/phpspreadsheet": "^1.23",
         "ext-gd": "*",
         "ext-pdo": "*"
-    },
+        },
     "config": {
         "platform-check": false,
         "platform": {
@@ -17,3 +16,4 @@
         }
     }
 }
+
