@@ -1,7 +1,8 @@
-# 7 MVC Anna
+# Tennis Competitions site
 
 The project was created to introduce a web-site connected to the database including display, adding, configuration and removal of the tables entries.
-
+-----------------------------------------------
+Shtepa Anna // September - November 2022
 ## Requirements and installation
 
 MySQL version 5.7;
